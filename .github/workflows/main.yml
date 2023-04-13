@@ -1,19 +1,28 @@
-name: CI
+name: Web CI
 
-on: push
+on:
+  push:
+    branches: master
+
+  pull_request:
+    branches: master
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
 
-      - name: Greeting
-        run: echo "Hello, world!"
+      - name: Install 🔧
+        run: npm install
 
-      - name: Simulate an error
-        run: echo "About to fail" ; exit 1
+      - name: Lint 🧐
+        run: npm run lint:check
 
-      - name: Another greeting
-        run: mv mine polsk
+      - name: Test 🚨
+        run: npm test
+
+      - name: Build 🏗️
+        run: npm run build
