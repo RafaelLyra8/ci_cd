@@ -1,16 +1,31 @@
-name: Tag name CD
+name: CS-Consts CD
 
 on:
   release:
     types: [created]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
 
-      - name: Build 🏗️
-        run: echo "${GITHUB_REF_NAME#v}"
+      - name: Build Docker Compose 🏗️
+        run: docker-compose build
+
+      - name: Login to GitHub Container Registry 🔓
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.CS_CONSTS }}
+
+      - name: Write deploy tag
+        run:  echo "RELEASE_TAG=${GITHUB_REF_NAME#v}" > .env
+
+      - name: Push Docker Compose 🪖
+        run: docker-compose push
