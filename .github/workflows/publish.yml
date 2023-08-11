@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@master
 
       - name: Build 🏗️
-        run: echo ${GIHUB_REF}
+        run: echo ${GITHUB_REF_NAME}
