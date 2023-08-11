@@ -3,7 +3,7 @@ version: '3.8'
 services:
   fac-csconsts:
     container_name: 'facs-csconsts'
-    image: 'ghcr.io/lnls-sirius/control-system-constants:${RELEASE_TAG}'
+    image: 'ghcr.io/RafaelLyra8/ci_cd:${RELEASE_TAG}'
     build:
       context: .
       labels:
@@ -13,7 +13,7 @@ services:
 
   fac-csconsts-latest:
     container_name: 'facs-csconsts'
-    image: 'ghcr.io/lnls-sirius/control-system-constants'
+    image: 'ghcr.io/RafaelLyra8/ci_cd'
     build:
       context: .
       labels:
