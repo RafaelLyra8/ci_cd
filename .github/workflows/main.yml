@@ -26,3 +26,6 @@ jobs:
 
       - name: Build 🏗️
         run: npm run build
+
+      - name: My name
+        run: echo "${github.repository_owner}"
