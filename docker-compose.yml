@@ -3,7 +3,7 @@ version: '3.8'
 services:
   fac-csconsts:
     container_name: 'facs-csconsts'
-    image: 'ghcr.io/rlyra8/ci_cd:${RELEASE_TAG}'
+    image: 'ghcr.io/rafaellyra8/ci_cd:${RELEASE_TAG}'
     build:
       context: .
       labels:
@@ -13,7 +13,7 @@ services:
 
   fac-csconsts-latest:
     container_name: 'facs-csconsts'
-    image: 'ghcr.io/rlyra8/ci_cd'
+    image: 'ghcr.io/rafaellyra8/ci_cd'
     build:
       context: .
       labels:
