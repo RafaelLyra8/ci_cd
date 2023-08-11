@@ -28,4 +28,4 @@ jobs:
         run: npm run build
 
       - name: My name
-        run: echo "${{ GITHUB_REPOSITORY }}"
+        run: echo "${GITHUB_REPOSITORY}"
