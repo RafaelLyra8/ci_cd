@@ -19,7 +19,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.CS_CONSTS }}
+          password: ${{ secrets.TEST }}
 
       - name: Write deploy tag
         run:  echo "RELEASE_TAG=${GITHUB_REF_NAME#v}" > .env
